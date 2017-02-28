@@ -30,7 +30,10 @@ def display_ratings(filepath):
 
     random_restaurant_name = random.choice(alphabetized_keys)
 
-    restaurants_and_ratings[random_restaurant_name] = raw_input("the rating of %s is %s, what should the new rating be? " % (random_restaurant_name, restaurants_and_ratings[random_restaurant_name]))
+    restaurants_and_ratings[random_restaurant_name] = int(
+        raw_input(
+            "the rating of %s is %s, what should the new rating be? " % (
+                random_restaurant_name, restaurants_and_ratings[random_restaurant_name])))
 
     for key in alphabetized_keys:
         print key, "is rated", restaurants_and_ratings[key]
@@ -40,6 +43,8 @@ def display_ratings(filepath):
 
 
 def adds_new_restaurant(established_restaurants):
+    """Takes in a dictionary, updates it with user submitted values, returns nothing"""
+
     user_added_restaurant = raw_input("Enter a new restaurant ")
     user_added_rating = int(raw_input("Enter that restaurant's rating "))
     established_restaurants[user_added_restaurant] = user_added_rating
